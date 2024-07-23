@@ -24,7 +24,7 @@ for creating AZURE resources, and you can customize the inputs as needed. Below 
 
 ```hcl
 module "azmonitor-action-groups" {
-  source      =  "git::https://github.com/opsstation/terraform-azure-monitor-alerts.git?ref=v1.0.0"
+  source      =  "git::https://github.com/yadavprakash/terraform-azure-monitor-alerts.git?ref=v1.0.0"
   name        = "app"
   environment = "test"
   actionGroups = {
@@ -55,7 +55,7 @@ module "azmonitor-action-groups" {
 ```hcl
 module "alerts" {
   depends_on  = [data.azurerm_monitor_action_group.example, ]
-  source      =  "git::https://github.com/opsstation/terraform-azure-monitor-alerts.git?ref=v1.0.0"
+  source      =  "git::https://github.com/yadavprakash/terraform-azure-monitor-alerts.git?ref=v1.0.0"
   name        = "app"
   environment = "test"
   activity_log_alert = {
@@ -86,7 +86,7 @@ module "alerts" {
 ```hcl
 module "azmonitor-metric-alerts" {
   depends_on = [data.azurerm_monitor_action_group.example, data.azurerm_kubernetes_cluster.example]
-  source      =  "git::https://github.com/opsstation/terraform-azure-monitor-alerts.git?ref=v1.0.0"
+  source      =  "git::https://github.com/yadavprakash/terraform-azure-monitor-alerts.git?ref=v1.0.0"
   name        = "app"
   environment = "test"
   metricAlerts = {
@@ -137,10 +137,10 @@ module "azmonitor-metric-alerts" {
 This example demonstrates how to create various AZURE resources using the provided modules. Adjust the input values to suit your specific requirements.
 
 ## Examples
-For detailed examples on how to use this module, please refer to the [Examples](https://github.com/opsstation/terraform-azure-monitor-alerts/tree/master/_examples) directory within this repository.
+For detailed examples on how to use this module, please refer to the [Examples](https://github.com/yadavprakash/terraform-azure-monitor-alerts/tree/master/_examples) directory within this repository.
 
 ## License
-This Terraform module is provided under the **MIT** License. Please see the [LICENSE](https://github.com/opsstation/terraform-azure-monitor-alerts/blob/master/LICENSE) file for more details.
+This Terraform module is provided under the **MIT** License. Please see the [LICENSE](https://github.com/yadavprakash/terraform-azure-monitor-alerts/blob/master/LICENSE) file for more details.
 
 ## Author
 Your Name
@@ -164,7 +164,7 @@ Replace **MIT** and **Cypik** with the appropriate license and your information.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_labels"></a> [labels](#module\_labels) | git::https://github.com/opsstation/terraform-azure-labels.git | v1.0.0 |
+| <a name="module_labels"></a> [labels](#module\_labels) | git::https://github.com/yadavprakash/terraform-azure-labels.git | v1.0.0 |
 
 ## Resources
 
@@ -182,7 +182,7 @@ Replace **MIT** and **Cypik** with the appropriate license and your information.
 | <a name="input_activity_log_alert"></a> [activity\_log\_alert](#input\_activity\_log\_alert) | n/a | <pre>map(object({<br>    alertname      = string<br>    alertrg        = string<br>    alertscopes    = list(string)<br>    description    = string<br>    operation_name = string<br>    actionGroupID  = string<br>    category       = string<br>  }))</pre> | `{}` | no |
 | <a name="input_environment"></a> [environment](#input\_environment) | Environment (e.g. `prod`, `dev`, `staging`). | `string` | `""` | no |
 | <a name="input_label_order"></a> [label\_order](#input\_label\_order) | Label order, e.g. `name`,`application`. | `list(any)` | <pre>[<br>  "name",<br>  "environment"<br>]</pre> | no |
-| <a name="input_managedby"></a> [managedby](#input\_managedby) | ManagedBy, eg 'OpsStation'. | `string` | `""` | no |
+| <a name="input_managedby"></a> [managedby](#input\_managedby) | ManagedBy, eg 'yadavprakash'. | `string` | `""` | no |
 | <a name="input_metricAlerts"></a> [metricAlerts](#input\_metricAlerts) | n/a | <pre>map(object({<br>    alertName                  = string<br>    alertResourceGroupName     = string<br>    alertScopes                = list(string)<br>    alertDescription           = string<br>    alertEnabled               = bool<br>    alertAutoMitigate          = bool<br>    alertFrequency             = string<br>    alertTargetResourceType    = string<br>    alertTargetResourceLoc     = string<br>    dynCriteriaMetricNamespace = string<br>    dynCriteriaMetricName      = string<br>    dynCriteriaAggregation     = string<br>    dynCriteriaOperator        = string<br>    dynCriteriathreshold       = string<br>    actionGroupID              = string<br>  }))</pre> | `{}` | no |
 | <a name="input_name"></a> [name](#input\_name) | Name  (e.g. `app` or `cluster`). | `string` | `""` | no |
 | <a name="input_repository"></a> [repository](#input\_repository) | Terraform current module repo | `string` | `""` | no |

@@ -4,7 +4,7 @@ provider "azurerm" {
 }
 
 module "resource_group" {
-  source      = "git::https://github.com/opsstation/terraform-azure-resource-group.git?ref=v1.0.0"
+  source      = "git::https://github.com/yadavprakash/terraform-azure-resource-group.git?ref=v1.0.0"
   name        = "app"
   environment = "test"
   location    = "North Europe"
@@ -35,3 +35,4 @@ module "azmonitor-action-groups" {
     }
   }
 }
+
